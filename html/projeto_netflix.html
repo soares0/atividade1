@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <link rel="stylesheet" href="html\imagem\netflix.png">
+    <style>
+        h2{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 3.125rem;
+            color: red;
+            margin: 42px;
+            padding: 0;
+        }
+        body{
+            margin: 0px;
+            padding: 0px;
+            
+        }
+        header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            height: 65px;
+            
+        }
+        header>div{
+            align-self: center;
+            padding: 20px;
+          
+        }
+        .button{
+            cursor: pointer;
+            font-size: 1.2em;
+            border-radius: 5px;
+            margin: 20px;
+            padding: 6px 11px 6px 11px;
+            background-color: red;
+            color: white;
+
+        }
+        #idioma{
+            font-size: 1.2em;
+            color:white;
+            background-color: black;
+            border: solid black;
+        }
+        #primeira_section{
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.4)), url('../html/imagem/netflix.png') ;      
+
+        }
+        .topo{
+            font-family: sans-serif;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 90vh;
+            border-bottom: solid 5px black;
+            margin: auto;
+            width: 640px;
+            text-align: center;
+        }
+        h1{margin-top: 80px;
+            margin-bottom: 10px;
+            font-size: 50px;     
+        }
+        #topo>p{
+            text-align: center;
+            font-size: 23px;
+        }
+        .busca{
+            border: 0px;
+            margin:0px ;
+            padding: 0px;
+            width: 65% ;
+            height: 60px;
+        }
+        #form_busca{
+            
+            display: flex;
+            justify-content: center;
+            
+            text-align: center;
+            padding: 0px;
+            width: 80%;
+          
+        }
+        .button_busca{
+            border-top: 0px;
+            margin: 0px;
+            color: white;
+            background-color: red;
+            font-size: 1.4em;
+            width: 30%;
+            height: 63px;
+            cursor: pointer;
+        }
+        .sections{      
+            background-color: black;
+            width: 100%;
+            min-height: 477px ;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            
+        }
+        .conteudo{  
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 30px   ;
+            margin: 0;
+            min-width: 45%;
+            height: 100%;
+            text-align: left;
+            background-color: black;
+        }
+        h3{
+            margin: 20px;
+            font-size: 3.5em;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: white;
+        }
+        .paragrafos{
+            padding: 0px;
+            margin: 20px;
+            color: white;
+            font-size: 2.0em;
+        }
+        img{
+            width: auto;
+            height: auto;
+        }
+        a{
+            text-decoration: none;
+            color: rgb(156, 149, 149);
+
+        }
+        li{
+            
+            list-style-type:none ; 
+            padding: 10px;
+        }
+        ul{
+         
+            margin: 0px;
+            padding: 0px;
+
+        }
+        #rodape>div{
+            width: 25%;
+        }
+        #rodape{
+            width: 70%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around   ;
+            margin: auto;
+            
+        }
+        footer{
+            display: flex;
+            flex-direction: column;
+            background-color: black;
+            color: rgb(156, 149, 149);
+            text-align: left;
+        }
+        footer> p{
+
+            width: 100%;
+            margin-left: 10%;
+            color: rgb(156, 149, 149);
+        }
+        .largura{
+            margin-top: 25px;
+            margin-left: 15.7%;
+        }
+        .accordions{
+            color: white;
+            min-height: auto;
+            width:65%;
+            margin:auto ;
+            margin-bottom: 70px;
+            
+            }
+            /**
+            * Oculta o input
+            */
+            .accordion-item input{display:none;}
+
+            /**
+             * Aqui configura o label
+             * que será parte clicável
+            **/
+            .accordion-item label{
+                padding: 10px;          
+                font-size: 2em;
+                display:block;
+                margin-top: 10px;
+                border-bottom: 2px solid black;
+                background:#303030;
+                cursor:pointer;
+            }
+
+            /**
+            * Aqui o elemento que vai o conteúdo.
+            * Define o height:0, para aplicarmos o efeito
+            * colocamos overflow:hidden não mostrar o último item
+            * O transition o tipo de efeito que queremos
+            */
+            .accordion-content{
+                
+                font-size: 2em;
+                background-color: #303030;
+                height: 0px;
+                overflow: hidden;
+                -webkit-transition: height 0.3s ease-in-out;
+                -moz-transition: height 0.3s ease-in-out;
+                -o-transition: height 0.3s ease-in-out;
+                -ms-transition: height 0.3s ease-in-out;
+                transition: height 0.3s ease-in-out;
+            }
+
+            /**
+            * Selecionar o elemento que está precedente
+            * do tipo com atributo checked, sendo
+            * que o ID comece o accordion
+            * E dentro dele, definimos a altura,
+            * mostrando o conteúdo
+            */
+            [id^=accordion]:checked ~ .accordion-content {
+                height: 360px;
+                margin: 0;
+                padding: 10px;
+                
+            }
+            #accordions>h3{
+                background-color: red;
+            }
+            
+            
+            #form_busca>p{
+                width: 100%;
+                font-size: 17px;
+                text-align: center;
+              
+            }
+
+    </style>
+</head>
+<body>
+    <section id="primeira_section">
+        <header>
+            <div>
+                <h2>NETFLIX</h2>
+            </div>
+            <div>
+                <form action="">
+                    <select id="idioma" name="idioma" id="idioma">
+                        <option value="portugues">portugues</option>
+                        <option value="ingles">ingles</option>        
+                    </select>
+                    <button class="button">entrar</button>
+                </form>
+            </div>
+
+        </header>
+        <div class="topo" id="topo">
+            <h1>Filmes, séries e muito mais. Sem limites.</h1>
+            <p>Assista onde quiser. Cancele quando quiser.</p>
+            <p>Pronto para assistir? Informe seu email para criar ou reiniciar sua assinatura.</p>
+            
+            <form  id="form_busca" action="">
+                <input  class="busca" type="email" name="busca" placeholder="Email" id="">
+                <button type="submit" class="button_busca">Vamos la ></button>
+            </form>
+        </div>
+    </section>
+    <section class="sections">
+        <div class="conteudo">
+            <h3>Aproveite na TV.</h3>
+            <p class="paragrafos"> Assista em Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, aparelhos de Blu-ray e outros dispositivos.</p>
+        </div>
+        <div class="conteudo">
+            <img src="../html/imagem/gif1.png" alt="animacao">
+        </div>
+
+    </section>
+    <section class="sections">
+        <div class="conteudo">  
+            <img src="../html/imagem/gif2.png" alt="animacao">
+            
+        </div>
+        <div class="conteudo">
+            <h3>Baixe séries para assistir offline.</h3>
+            <p class="paragrafos">Salve seus títulos favoritos e sempre tenha algo para assistir.</p>
+        </div>
+    </section>
+
+
+    <section class="sections">
+        <div class="conteudo">
+            <h3>Assista quando quiser.</h3>
+            <p class="paragrafos">Assista no celular, tablet, Smart TV ou notebook sem pagar a mais por isso.</p>
+        </div>
+        <div class="conteudo">
+            <img src="../html/imagem/gif3.png" alt="animacao">
+        </div>
+    </section>
+    <section class="sections">
+        <div class="conteudo">  
+            <img src="../html/imagem/gif4.png" alt="animacao">
+            
+        </div>
+        <div class="conteudo">
+            <h3>Crie perfis para crianças.</h3>
+            <p class="paragrafos">Deixe as crianças se aventurarem com seus personagens favoritos em um espaço feito só para elas, sem pagar a mais por isso.</p>
+        </div>
+    </section>
+    <section class="sections">
+        
+        <div class="accordions" id="accordions-itens">
+            <h3 style="margin-bottom:70px; text-align:center ;">perguntas frequentes</h3>
+            <div class="accordion-item">
+                <input type="checkbox" name="accordion"  id="accordion-1" />
+                <label for= "accordion-1">O que é Netflix?</label>
+                <div class="accordion-content">
+                    A Netflix é um serviço de transmissão online que oferece uma ampla variedade de séries, filmes e documentários premiados em milhares de aparelhos conectados à internet.
+                    Você pode assistir a quantos filmes e séries quiser, quando e onde quiser, sem comerciais – tudo por um preço mensal bem acessível. Aqui você sempre encontra novidades. A cada semana, adicionamos novas séries e filmes.
+                </div>
+            </div>
+            <div class="accordion-item">
+                <input type="checkbox" name="accordion" id="accordion-2" />
+                <label for= "accordion-2">Quanto custa a Netflix?</label>
+                <div class="accordion-content">
+                    Assista à Netflix no seu celular, tablet, Smart TV, notebook ou aparelho de streaming por uma taxa mensal única. Os planos variam de R$25,90 a R$55,90 por mês. Sem contrato nem taxas extras.
+                </div>
+            </div>
+            <div class="accordion-item">
+                <input type="checkbox" name="accordion" id="accordion-3" />
+                <label for= "accordion-3">Onde Posso assistir?</label>
+                <div class="accordion-content">
+                    Assista onde quiser, quando quiser. Faça login com sua conta Netflix em netflix.com para começar a assistir no computador ou em qualquer aparelho conectado à Internet compatível com o aplicativo Netflix, como Smart TVs, smartphones, tablets, aparelhos de streaming e videogames 
+                    Você também pode baixar a sua série favorita com o aplicativo Netflix para iOS, Android ou Windows 10. Use downloads para levar a Netflix para onde quiser sem precisar de conexão com a Internet. Leve a Netflix com você para qualquer lugar.
+                </div>
+            </div>
+            <div class="accordion-item">
+                <input type="checkbox" name="accordion" id="accordion-4">
+                <label for="accordion-4"> Como faço para cancelar?</label>
+                <div class="accordion-content">
+                    A Netflix é flexível. Não há contratos nem compromissos. Você pode cancelar a sua conta na internet com apenas dois cliques. Não há taxa de cancelamento – você pode começar ou encerrar a sua assinatura a qualquer momento.
+                </div>              
+            </div>
+            <div class="accordion-item">
+                <input type="checkbox" name="accordion" id="accordion-5">
+                <label for="accordion-5">O que eu posso assistir na Netflix?</label>
+                <div class="accordion-content">
+                    A Netflix tem um grande catálogo de filmes, documentários, séries, originais Netflix premiados e muito mais. Assista o quanto quiser, quando quiser.
+                </div>     
+            </div>
+            <div class="accordion-item">
+                <input type="checkbox" name="accordion" id="accordion-6">
+                <label for="accordion-6"> A Netflix e adequada para crianças?</label>
+                <div class="accordion-content">
+                    A experiência infantil da Netflix faz parte da sua assinatura para que as crianças se divirtam em seu próprio espaço com séries e filmes familiares sob a supervisão dos responsáveis.
+                    O recurso de controle parental, incluso nos perfis para crianças e protegido por PIN, permite restringir a classificação etária do conteúdo que as crianças podem ver e bloquear títulos específicos que você não quer que elas assistam.
+                </div>
+                
+            </div>
+            <div>
+                
+                <p style="font-size: 22px; text-align: center;" >Pronto para assistir? Informe seu email para criar ou reiniciar sua assinatura.</p>
+                <form style="margin:70px ;" id="form_busca" action="">
+                    <input  class="busca" type="email" name="busca" placeholder="Email" id="email">
+                    <button class="button_busca">Vamos la ></button>
+                </form>
+            </div>    
+            
+        </div>
+        
+            
+        
+    </section>
+
+   
+        <footer id="footer">
+            <div class="largura">
+                <p>Dúvidas? Ligue <a href="">0800 591 8942</a></p>
+            </div>
+            <section id="rodape">
+                <div>
+                    <ul>
+                        <li><a href="">Perguntas frequentes</a></li>
+                        <li><a href="">Relações com investidores</a></li>
+                        <li><a href="">Formas de assistir</a></li>
+                        <li><a href="">Informações corporativas</a></li>
+                        <li><a href="">Só na Netflix</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li><a href="">Centro de ajuda</a></li>
+                        <li><a href="">Carreiras</a></li>
+                        <li><a href="">Termos de uso</a></li>
+                        <li><a href="">Entre em contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li><a href="">Conta</a></li>
+                        <li><a href="">Resgatar cartão pré-pago</a></li>
+                        <li><a href="">Privacidade</a></li>
+                        <li><a href="">Teste de velocidade</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li><a href="">Media Center</a></li>
+                        <li><a href="">Comprar cartão pré-pago</a></li>
+                        <li><a href="">Preferências de cookies</a></li>
+                        <li><a href="">Avisos legais</a></li>
+                    </ul>
+                </div>
+                
+            </section>
+            <div class="largura">
+                <form action="">
+                    <select style="border: solid 1px rgb(128, 123, 123);" id="idioma" name="idioma" id="idioma">
+                        <option value="portugues">portugues</option>
+                        <option value="ingles">ingles</option>        
+                    </select>              
+                </form>
+            </div>
+            <p class="largura">Netflix Brasil</p>
+        </footer>
+
+    
+</body>
+</html>

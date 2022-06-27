@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cadastro Americanas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <Style>
+        body{
+            display: block;
+            padding: 0;
+            margin: 0;
+        }
+        
+        header{
+            
+            font-family: 'Staatliches', cursive, Helvetica, sans-serif;
+            text-align: center;
+            padding-left: 90px;
+            display: flex;
+            align-items: center;
+            text-decoration:overline underline white;
+            font-size: 30px;
+            height: 85px;
+            color: white;
+            background-color: red;
+            
+        }
+        form{
+            text-align: left;
+            font-size: 15px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif ;
+            display: block;
+            width: 407px;
+            align-items: flex-start;
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+        }
+        div{
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;  
+            align-items: flex-start;
+        }
+        h1{
+            text-align: center;
+        }
+        input{  
+            margin-top: 5px; 
+            border-radius: 5px;
+            border: solid black 1px;     
+        }
+        .center{
+            text-align: center;
+        }
+        .bottom{
+            margin-left: 25%;
+            font-weight: bold;
+            color: white;
+            background-color: red;
+            width: 200px;
+            height: 35px;
+            cursor: pointer;
+        }
+        .altura_largura{
+            width: 150px;
+            height: 35px;
+        }
+        .sub_label{
+            margin-top: 5px;
+            color: rgb(164, 154, 154);
+        }
+       
+        
+        
+
+    </Style>
+</head>
+<body>
+    <header>
+        AMERICANAS
+    </header>
+    <h1 class="center">criar seu cadastro</h1>
+    <h3>
+        <p class="center"> seus pedidos de forma fácil, compre mais rápido e tenha uma experiência personalizada :)</p>
+    </h3>
+    <h4><p class="center">    *campos obrigatórios</p></h4>
+
+    <form action="" class="container">
+        <div>
+            <label>*nome completro</label> 
+            <input style="width:90% ;" class="altura_largura" type="text" name="nome">
+        </div>
+        <div>
+            <label>*genero </label>
+            <p class="sub_label" >pra gente te conhecer um pouquinho melhor :)</p> 
+            <input type="radio" name="genero" value="marculino">masculino
+            <input type="radio" name="genero" value="feminino">feminino
+            <input type="radio" name="genero" value="nao informar"> nao informar
+        </div>
+
+        <div>
+            <label for="">*data de nascimento</label>
+            <p class="sub_label">necessário pra identificar a maioridade, no formato DD/MM/AAAA</p>
+            <input class="altura_largura" type="text" name="data" placeholder="  __/__/____" id="">
+        </div>
+        <div>
+            <label for=""> *cpf</label>
+            <p class="sub_label">necessário pra emissão das Notas Fiscais</p>
+            <input class="altura_largura" type="text" placeholder="  ___/___/___-__">
+        </div>
+        <div>
+            <label>*telefone</label>
+            <p class="sub_label">caso a gente precise entrar em contato sobre seus pedidos</p>
+            <input class="altura_largura" type="tel" name="telefone" placeholder="  (  )_____-____">
+        </div>
+        <div>
+            <input type="checkbox" name="whatzap">
+            <label for="">receber notificações por whatsapp</label>
+        </div>
+        <div>
+            <label for="">e-mail</label>
+            <input style="width: 100%;" class="altura_largura" type="email">
+        </div>
+        <div>
+            <input type="checkbox" name="notificacao">
+            <label for="">receber e-mails promocionais</label>
+        </div>
+        <div>
+            <label for="">senha</label>
+            <p class="sub_label">precisa ter entre 6 e 20 caracteres</p>
+            <input class="altura_largura" type="password" name="senha">
+            <div><label for="">media</label></div>
+        </div>
+        <div>
+            <input type="checkbox" name="compartilhar" id="">
+            <label for="">compartilhar meus dados com parceiros para ter 
+                conteúdos personalizados, 
+                veja <a href="">como funciona</a>.</label>
+        </div>
+
+        <div> <input  class="bottom" type="button"  value="criar seu cadastro"></div>
+    </form>
+    <p class="center">Não se preocupe, nosso site é seguro! Ao criar o seu cadastro, você 
+        concorda com a nossa <a href="">Política de Privacidade</a></p>
+    <p class="center">já tem cadastro? <a href="../html/loguin.html">entrar</a></p>
+
+    
+</body>
+</html>
