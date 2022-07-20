@@ -43,7 +43,7 @@
         div{
             width: 100%;
             padding: 10px;
-            margin-bottom: 20px;  
+             
             align-items: flex-start;
         }
         h1{
@@ -74,13 +74,72 @@
             margin-top: 5px;
             color: rgb(164, 154, 154);
         }
-       
-        
-        
-
+        .alerta{
+            color: red;
+            text-align:start;
+            font-size: 12px;
+        }
     </Style>
+    <script>
+
+        function validar(){
+            var nome = document.getElementById('nome')
+            if( nome.value == ''){
+               nome.style.border ='solid 1px red'
+                document.getElementById('alertaNome').innerHTML=' por favor, informe o nome e o sobrenome.'
+            } else {
+                nome.style.border ='solid 1px green'
+                document.getElementById('alertaNome').innerHTML=''
+            }
+            
+            var data =document.getElementById('data')
+            if(data.value == ''){
+               data.style.border ='solid 1px red'
+                document.getElementById('alertaData').innerHTML='é necessário informar a data de nascimento.'
+            } else {
+                data.style.border ='solid 1px green'
+                document.getElementById('alertaData').innerHTML=''
+            }
+            var cpf = document.getElementById('cpf')
+            if(cpf.value == ''){
+               cpf.style.border ='solid 1px red'
+                document.getElementById('alertaCpf').innerHTML='é necessário informar um CPF.'
+            } else {
+                cpf.style.border ='solid 1px green'
+                document.getElementById('alertaCpf').innerHTML=''
+            }
+            var telefone=document.getElementById('telefone')
+            if(telefone.value == ''){
+               telefone.style.border ='solid 1px red'
+                document.getElementById('alertaTelefone').innerHTML='é necessário informar o número do telefone principal.'
+            } else {
+                telefone.style.border ='solid 1px green'
+                document.getElementById('alertaTelefone').innerHTML=''
+            }
+            var email=document.getElementById('email')
+            if(email.value == ''){
+               telefone.style.border ='solid 1px red'
+                document.getElementById('alertaEmail').innerHTML='é necessário informar um e-mail.'
+            } else {
+                email.style.border ='solid 1px green'
+                document.getElementById('alertaEmail').innerHTML=''
+            }
+        }
+
+        function confirmSenha(){
+            var senha = document.getElementById('senha')
+            var avaliarSenha =  document.getElementById('alertaSenha')
+            if(senha.value.length <= 6){
+               avaliarSenha.innerHTML='FRACA'
+            } else if( senha.value.length >= 7 & senha.value.length < 12){
+                avaliarSenha.innerHTML='MEDIA'
+            } else { 
+                avaliarSenha.innerHTML='OTIMA'
+            }
+        }
+    </script>
 </head>
-<body>
+<body  >
     <header>
         AMERICANAS
     </header>
@@ -92,8 +151,9 @@
 
     <form action="" class="container">
         <div>
-            <label>*nome completro</label> 
-            <input style="width:90% ;" class="altura_largura" type="text" name="nome">
+            <label>*nome completo</label> 
+            <input id="nome" style="width:90% ;" class="altura_largura" type="text" name="nome">
+            <div class="alerta" id="alertaNome" ></div>
         </div>
         <div>
             <label>*genero </label>
@@ -103,47 +163,58 @@
             <input type="radio" name="genero" value="nao informar"> nao informar
         </div>
 
-        <div>
+        <div >
             <label for="">*data de nascimento</label>
             <p class="sub_label">necessário pra identificar a maioridade, no formato DD/MM/AAAA</p>
-            <input class="altura_largura" type="text" name="data" placeholder="  __/__/____" id="">
+            <input id="data" class="altura_largura" type="text" name="data" placeholder="  __/__/____" id="">
+            <div class="alerta" id="alertaData" ></div>
         </div>
         <div>
             <label for=""> *cpf</label>
             <p class="sub_label">necessário pra emissão das Notas Fiscais</p>
-            <input class="altura_largura" type="text" placeholder="  ___/___/___-__">
+            <input id="cpf" class="altura_largura" type="text" placeholder="  ___/___/___-__">
+            <div class="alerta" id="alertaCpf" ></div>
         </div>
         <div>
             <label>*telefone</label>
             <p class="sub_label">caso a gente precise entrar em contato sobre seus pedidos</p>
-            <input class="altura_largura" type="tel" name="telefone" placeholder="  (  )_____-____">
+            <input onchange="validarTelefone()" id="telefone" class="altura_largura" type="tel" name="telefone" placeholder="  (  )_____-____">
+            <div class="alerta" id="alertaTelefone" ></div>
         </div>
+        
         <div>
             <input type="checkbox" name="whatzap">
             <label for="">receber notificações por whatsapp</label>
         </div>
-        <div>
-            <label for="">e-mail</label>
-            <input style="width: 100%;" class="altura_largura" type="email">
+        <div id="celular">
+            <label>celular</label>
+            <p class="sub_label">caso a gente precise entrar em contato sobre seus pedidos</p>
+            <input id="celular" class="altura_largura" type="tel" name="telefone" placeholder="  (  )_____-____">
+            <div class="alerta" id="alertaCelular" ></div>
         </div>
         <div>
-            <input type="checkbox" name="notificacao">
+            <label for="">e-mail</label>
+            <input id="email" style="width: 100%;" class="altura_largura" type="email">
+            <div class="alerta" id="alertaEmail" ></div>
+        </div>
+        <div>
+            <input type="checkbox" name="notificacao" checked="checked">
             <label for="">receber e-mails promocionais</label>
         </div>
         <div>
             <label for="">senha</label>
             <p class="sub_label">precisa ter entre 6 e 20 caracteres</p>
-            <input class="altura_largura" type="password" name="senha">
-            <div><label for="">media</label></div>
+            <input onchange="confirmSenha()" id="senha" class="altura_largura" type="password" name="senha" maxlength="20">
+            <div class="alerta"  id="alertaSenha" style="color: rgb(164, 154, 154);" > FRACA</div>
         </div>
         <div>
-            <input type="checkbox" name="compartilhar" id="">
+            <input type="checkbox" name="compartilhar" id="" checked="checked">
             <label for="">compartilhar meus dados com parceiros para ter 
                 conteúdos personalizados, 
                 veja <a href="">como funciona</a>.</label>
         </div>
 
-        <div> <input  class="bottom" type="button"  value="criar seu cadastro"></div>
+        <div> <input onclick="validar()" class="bottom" type="button"  value="criar seu cadastro"></div>
     </form>
     <p class="center">Não se preocupe, nosso site é seguro! Ao criar o seu cadastro, você 
         concorda com a nossa <a href="">Política de Privacidade</a></p>
